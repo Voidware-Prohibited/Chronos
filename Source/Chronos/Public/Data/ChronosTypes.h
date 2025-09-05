@@ -8,7 +8,7 @@ struct CHRONOS_API FChronosWeekDefinition
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (AllowPrivateAccess))
-	int Days;
+	int Days {0};
 
 	bool operator==(const FChronosWeekDefinition& other) const
 	{
