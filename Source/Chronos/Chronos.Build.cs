@@ -25,7 +25,7 @@ public class Chronos : ModuleRules
 		PublicDependencyModuleNames.AddRange(
 			new string[]
 			{
-				"Core",
+				"Core", "DaySequence", "DaySequenceEditor"
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);
