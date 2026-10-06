@@ -22,7 +22,7 @@
 * @file ChronosGameStateComponent.h
 * @brief ChronosGameStateComponent
 */
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
+UCLASS(BlueprintType, Blueprintable,  ClassGroup=(GameState), meta=(BlueprintSpawnableComponent))
 class CHRONOS_API UChronosGameStateComponent : public UActorComponent
 {
 	GENERATED_BODY()

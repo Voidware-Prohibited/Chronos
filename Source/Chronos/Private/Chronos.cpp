@@ -1,18 +1,33 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "Chronos.h"
+#include "Utility/ChronosLog.h"
+
+#if WITH_EDITOR
+#include "MessageLogModule.h"
+#endif
 
 #define LOCTEXT_NAMESPACE "FChronosModule"
 
 void FChronosModule::StartupModule()
 {
-	// This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module
+	IModuleInterface::StartupModule();
+
+#if WITH_EDITOR
+	auto& MessageLog{FModuleManager::LoadModuleChecked<FMessageLogModule>(FName{TEXTVIEW("MessageLog")})};
+
+	FMessageLogInitializationOptions MessageLogOptions;
+	MessageLogOptions.bShowFilters = true;
+	MessageLogOptions.bAllowClear = true;
+	MessageLogOptions.bDiscardDuplicates = true;
+
+	MessageLog.RegisterLogListing(ChronosLog::MessageLogName, LOCTEXT("MessageLogLabel", "Chronos"), MessageLogOptions);
+#endif
 }
 
 void FChronosModule::ShutdownModule()
 {
-	// This function may be called during shutdown to clean up your module.  For modules that support dynamic reloading,
-	// we call this function before unloading the module.
+	IModuleInterface::ShutdownModule();
 }
 
 #undef LOCTEXT_NAMESPACE
