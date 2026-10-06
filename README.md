@@ -78,14 +78,6 @@ Immerse the player in your games lore-accurate calendar and time system. From a 
 The following are built-in Engine plugins that are enabled in the Plugins window. Note: some Plugins may be Experimental or Beta software.
 - [DaySequence](https://dev.epicgames.com/documentation/unreal-engine/day-sequence-time-of-day-plugin-for-unreal-engine?application_version=5.8&lang=en-US)
 
-## Compiling from Source Code Requirements
-Included Workflows feature Cross-compilation to target both Windows and Linux from a Windows host.
-
-- A working UE5 C++ Integrated Developement Environment(IDE)
-     - Tested: Jetbrains Rider, VS Code, Visual Studio (Windows)
-     - Untested: XCode (MacOS), Jetbrains Rider, VS Code, Visual Studio (Linux)
-- clang -20 13.0.1
-
 # Installation
 
 ## Fab Plugin Installation
@@ -96,16 +88,25 @@ _Not available on Fab. Please perform Manual Installation_
 ### Latest Release
 _No Releases yet. Plesae Compile From Source Code_
 
-1. Install and setup all [dependencies](#Dependencies) (if required).
+1. Install and setup all [Dependencies](#Dependencies) (if required).
 2. Download Latest Release from [Releases](Chronos/tags/latest).
 3. Unzip to your project `Plugins` folder.
 4. (Re)Start Unreal Engine Editor.
 
 ### Compile From Source Code
+Your host machine must fulfill additional System Requirements to compile this project from source.
+
+#### Compiliation System Requirements
+
+- A working UE5 C++ Integrated Developement Environment(IDE)
+     - Tested: Jetbrains Rider, VS Code, Visual Studio (Windows)
+     - Untested: XCode (MacOS), Jetbrains Rider, VS Code, Visual Studio (Linux)
+- clang -20 13.0.1
 
 #### Quick Installation
 
-1. Install and setup all general [dependencies](#Dependencies) (if required).
+1. Install and setup all [Compiliation System Requirements](#Compiliation-System-Requirements).
+1. Install and setup all [Dependencies](#Dependencies) (if required).
 2. Clone/download Chronos into your projects Plugin folder.
 3. (Re)Build Plugin with the `BuildPlugin.bat` Script or (Re)Build Project normally with your IDE.
 4. Once compilation is successful you can now begin using Chronos in your project
@@ -120,10 +121,10 @@ To view a working demonstration, load and play the `L_Chronos` level in the `/Le
 
 To integrate Chronos into a new or existing Game State, some setup is required:
 
-1. Add ChronosGameStateComponent to your Game State
-2. Add ChronosGameStateInterface to your Game State
-3. Implement ChronosGameStateInterface functions in your Game State
-4. Configure ChronosGameStateComponent
+1. Add ChronosGameStateComponent to your Game State.
+2. Add ChronosGameStateInterface to your Game State.
+3. Implement ChronosGameStateInterface functions in your Game State.
+4. Configure ChronosGameStateComponent.
 
 The full [Getting Started guide](../..//wiki/GettingStarted/) is available in the [Chronos Wiki](../..//wiki/GettingStarted/)
 
@@ -168,11 +169,13 @@ Systems performing Continous Intergration Workflows will have additional require
 - Jenkins and Java 11 (For Jenkins)
 
 ## Workflows
-CI workflow YAML files are included for Forgejo/Codeberg, GitHub and GitLab. 
+CI workflow YAML files are included for Forgejo/Codeberg, GitHub and GitLab and feature Cross-compilation to target both Windows and Linux from a Windows host.
 
 `ue-plugin-ci` Build, Test, Code Coverage, Upload to Codecov, Update Changelog, Update Status. Activated with any push.
 `ue-plugin-ci-release` Build, Cook, Package, Test, Code Coverage, Upload to Codecov, Update Changelog, Update Status. Activated the a `v*` tag in the commit.
 `changelog` Generates and commits CHANGELOG.md. Activated the a `v*` tag in the commit.
+`doxygen-remote-repo` Generates doxygen Documentation. Activated the a `v*` tag in the commit.
+`greetings` Welcomes new contributors.
 
 ## Available Scripts
 Batch(Windows) and Shell(Linux) scripts are included for convenience and automation.
@@ -188,7 +191,7 @@ The provided tests can be run in an Action Workflow or run manually with RunUAT.
 - `ChronosTest`
 
 ## Code Coverage
-OpenCodeCoverage will perform Code Coverage analysis and publish and XML file as a Commit Artifact, and can optionally be uploaded to a configured Codecov account. You will need to first generate an Access Token from your Codecov account and add it your Forgejo/Codeberg, GitHub or GitLab Secrets as `CODECOV_TOKEN`.
+OpenCodeCoverage will perform Code Coverage analysis and publish an XML file as a Commit Artifact, which can optionally be uploaded to a configured Codecov account. You will need to first generate an Access Token from your Codecov account and add it your Forgejo/Codeberg, GitHub or GitLab Secrets as `CODECOV_TOKEN`.
 
 # Contributions
 Contibutors and PRs are very welcome! If you wish to contribute, please follow [CONTRIBUTING](docs/CONTRIBUTING.md) to get started.
