@@ -63,6 +63,7 @@ Immerse the player in your games lore-accurate calendar and time system. From a 
 # Goals
 - Provide a Customizable, Multiplayer Date Time System.
 - Provide a Robust, Data-Oriented Event System.
+- Encourage and facilitate adoption of Continuous Integration and Continuous Delivery (CI/CD) practices and Test Driven Development (TDD).
 - Adhere to, promote and facilitate adherance to the [Epic C++ Coding Standards for Unreal Engine](https://dev.epicgames.com/documentation/en-us/unreal-engine/epic-cplusplus-coding-standard-for-unreal-engine) and [Gamemakin UE5 Style Guide](https://github.com/Allar/ue5-style-guide/tree/v2)
 
 [Organizational Ethos](https://voidwarex.com/About/Ethos)
@@ -115,7 +116,7 @@ _No Releases yet. Plesae Compile From Source Code_
 [Full Installation Instructions](../..//wiki/Installation/) are available in the [Chronos Wiki](../..//wiki/Installation/)
 
 # Getting Started
-To view a working demonstration simply load the `L_Chronos` level in the `/Levels` folder. The Demo Widget will allow you to adjust parameters in Realtime.
+To view a working demonstration, load and play the `L_Chronos` level in the `/Levels` folder. The Demo Widget will allow you to adjust parameters in Realtime.
 
 To integrate Chronos into a new or existing Game State, some setup is required:
 
@@ -153,31 +154,7 @@ Provides easy access to Chronos data from anywhere the Game State is available.
 The ChronosGameStateComponent can be configured to write Parameters to a Material Parameter Collection for use in Materials.
 
 # Settings
-Chronos is designed to be extremely configurable with Data Assets.
-
-## Chronos Game State Component
-
-### Material Parameter Collection
-#### Data Source
-Select Data Source type: Curve
-#### Data Source Parameter
-Select which channel to read
-#### MPC Output Parameter
-Select which MPC Parameter to write to
-
-## Chronos Game State Interface
-
-## Calendar Asset
-
-## DayTime Asset
-
-## Phases
-
-## Curves
-
-## Time Scaling
-
-## Events
+For detailed descriptions all Settings, please consult the [Chronos Wiki](../..//wiki/) or the [Chronos Documentation](https://chronos.voidwarex.com/docs/).
 
 # CI
 To encourage and facilitate the adoption of CI, this project is preconfigured for CI with the Workflows and Scripts below.
